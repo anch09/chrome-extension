@@ -61,19 +61,19 @@ endButton.style['border-radius'] = "8px";
 endButton.style.padding = "10px";
 endButton.style['background-color'] = "rgb(181,81,74)";
 endButton.style.color = 'white';
-endButton.addEventListener('click', stop);
+// endButton.addEventListener('click', stop);
 
 pomodoro.appendChild(endButton);
 
 const gif = document.createElement('img');
 gif.setAttribute('id', 'homergif');
 gif.setAttribute('src', 'https://c.tenor.com/1yn3cUEhDx4AAAAC/homer-simpson-the-simpsons.gif');
-gif.style.position = 'absolute';
-gif.style.width = '70%';
-gif.style.height = '80%';
-gif.style.left = '15%';
-gif.style.top = '100px';
-gif.style['z-index'] = '99';
+gif.style.position = 'sticky';
+gif.style.width = '50%';
+gif.style.height = '60%';
+gif.style.left = '25%';
+gif.style.top = '200px';
+gif.style['z-index'] = '200';
 
 function timer(){
     let countDownTime25 = 3000;
@@ -97,16 +97,17 @@ function timer(){
             body.prepend(gif);
         }
         let timeourID = setTimeout(modifier, 1000);
-        return timeourID;
+        endButton.onclick = () => {
+            clearTimeout(timeourID);
+        };
     }
     modifier();
-    let timeoutId = setTimeout(timer, 1800000);
-    return timeoutId;
+   setTimeout(timer, 1800000);
 }
 
-function stop(timeourID){
-    clearTimeout(timeourID);
-}
+// function stop(timeID){
+//     clearTimeout(timeID);
+// }
 
 
 
