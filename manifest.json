@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Homer Pomodoro",
+  "version": "0.01",
+  "description": "Stay focused",
+  "content_scripts" : [
+      {
+          "matches": ["https://*/*"],
+          "js": ["./main.js"]
+      }
+  ]
+}
